@@ -14,14 +14,12 @@ def run_game():
     pygame.display.set_caption('Alien Invasion')
 
     # Создание корабля
-    ship = Ship(screen)
-
-    # Назначение цвета фона
-    bg_color = (230,230,230)
+    ship = Ship(ai_settings, screen)
     
     # Запуск основного цикла игры
     while True:
-        gf.check_events()
+        gf.check_events(ship)
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
 
 run_game()
